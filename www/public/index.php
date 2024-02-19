@@ -1,18 +1,18 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
-<html lang = 'sv'>
+<html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <title>Sök länder</title>
-  include('showCountries.php');
+    <meta charset="utf-8" >
+    <title>EGY Talk</title>
 </head>
-<body>
- 
-<form method="post" action="showCountries.php">
-    <label>Land: </label>
-    <input type="text" name="country" size="20">
-    
-    <input type="submit" value="Submit" name="Sök">
-</form>
- 
+<body>    
+    <?php    
+   	 if(isset($_SESSION['uid'])){
+   		 include 'private.php';
+   		 
+   	 }else{
+   		 include 'public.php';
+   	 }
+    ?>
 </body>
 </html>

@@ -2,7 +2,7 @@
     include_once('../inc/db.inc.php');
     /* Bygger upp sql frågan */
     $country = $_POST['country'];
-    $sqlkod = "SELECT Name, Population FROM country WHERE Name LIKE '$country%'";    
+    $sqlkod = "SELECT Name, Population FROM country WHERE Name LIKE '$country%' ORDER BY Name";    
     
     /* Kör frågan mot databasen world och tabellen country */
     $stmt = $db->prepare($sqlkod);    
@@ -17,4 +17,7 @@
         echo " <strong>Antal invånare: </strong>".$row['Population'];
         echo "<br /><hr />";
     }
+    echo "<a href = 'showCountriesForm.php'>Sök igen</a>";
+    echo "<br /><hr />";
+    echo "<a href = 'index.php'>Tillbaka till start</a>";    
 ?>
